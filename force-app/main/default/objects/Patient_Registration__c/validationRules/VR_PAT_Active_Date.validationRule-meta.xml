@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VR_PAT_Active_Date</fullName>
+    <active>true</active>
+    <description>Card expiration date must be later than the doctor certification date.</description>
+    <errorConditionFormula>Expiration_Date__c &lt;= Certification_Date__c</errorConditionFormula>
+    <errorDisplayField>Expiration_Date__c</errorDisplayField>
+    <errorMessage>Card expiration date must be later than the doctor certification date.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Application_Type__c</fullName>
+    <description>Category of commercial cannabis operating license requested.</description>
+    <inlineHelpText>Category of commercial cannabis operating license requested.</inlineHelpText>
+    <label>Application Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Grower/Processor</fullName>
+                <default>false</default>
+                <label>Grower/Processor</label>
+            </value>
+            <value>
+                <fullName>Analytical Lab</fullName>
+                <default>false</default>
+                <label>Analytical Lab</label>
+            </value>
+            <value>
+                <fullName>Dispensary Retail</fullName>
+                <default>false</default>
+                <label>Dispensary Retail</label>
+            </value>
+            <value>
+                <fullName>Academic Research</fullName>
+                <default>false</default>
+                <label>Academic Research</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,10 @@
+<aura:component implements="lightning:homeTemplate" description="Full-width single-column home page template for MMAP Console" access="global">
+    <aura:attribute name="main" type="Aura.Component[]" description="Full-width main region" />
+
+    <div class="slds-grid slds-wrap mmap-full-width-container">
+        <div class="slds-col slds-size_1-of-1">
+            {!v.main}
+        </div>
+    </div>
+</aura:component>
+

@@ -1,0 +1,105 @@
+/* Commonwealth Medical Marijuana Regulatory Program - Wizard Styling */
+
+:host {
+    display: block;
+}
+
+.mmap-header-card {
+    border-top: 4px solid #0B5C43;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.mmap-title {
+    color: #0B5C43;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+.mmap-step-container {
+    padding: 1.5rem;
+    min-height: 280px;
+}
+
+.mmap-fee-box {
+    background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%);
+    border: 2px solid #16A34A;
+    border-radius: 8px;
+    padding: 1.25rem;
+    text-align: center;
+}
+
+.mmap-fee-box-amount {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #14532D;
+    line-height: 1.2;
+}
+
+.mmap-review-card {
+    background-color: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    padding: 1.25rem;
+}
+
+.mmap-callout-info {
+    background-color: #EFF6FF;
+    border-left: 4px solid #2563EB;
+    border-radius: 4px;
+    padding: 0.85rem 1rem;
+}
+
+.mmap-callout-warning {
+    background-color: #FFFBEB;
+    border-left: 4px solid #D97706;
+    border-radius: 4px;
+    padding: 0.85rem 1rem;
+}
+
+.mmap-table-container {
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    overflow-x: auto;
+}
+
+/* Status Badges */
+.status-badge {
+    display: inline-block;
+    padding: 0.25rem 0.65rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.status-submitted {
+    background-color: #DBEAFE;
+    color: #1E40AF;
+}
+
+.status-under-review {
+    background-color: #FEF3C7;
+    color: #92400E;
+}
+
+.status-inspection-scheduled {
+    background-color: #EDE9FE;
+    color: #5B21B6;
+}
+
+.status-approved {
+    background-color: #DCFCE7;
+    color: #166534;
+}
+
+.status-rejected {
+    background-color: #FEE2E2;
+    color: #991B1B;
+}
+
+.status-draft {
+    background-color: #F3F4F6;
+    color: #4B5563;
+}

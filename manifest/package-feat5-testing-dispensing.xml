@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>Dispense_Transaction__c.Dispensary__c</members>
+        <members>Dispense_Transaction__c.Grams_Dispensed__c</members>
+        <members>Dispense_Transaction__c.Patient_Registration__c</members>
+        <members>Dispense_Transaction__c.Product_Package__c</members>
+        <members>Dispense_Transaction__c.Total_Amount__c</members>
+        <members>Dispense_Transaction__c.Transaction_Timestamp__c</members>
+        <members>Lab_Test_Result__c.CBD_Potency_Pct__c</members>
+        <members>Lab_Test_Result__c.Heavy_Metals_Pass__c</members>
+        <members>Lab_Test_Result__c.Mycotoxins_Pass__c</members>
+        <members>Lab_Test_Result__c.Overall_Status__c</members>
+        <members>Lab_Test_Result__c.Pesticides_Pass__c</members>
+        <members>Lab_Test_Result__c.Product_Package__c</members>
+        <members>Lab_Test_Result__c.Residual_Solvents_Pass__c</members>
+        <members>Lab_Test_Result__c.Test_Date__c</members>
+        <members>Lab_Test_Result__c.Testing_Laboratory__c</members>
+        <members>Lab_Test_Result__c.THC_Potency_Pct__c</members>
+        <name>CustomField</name>
+    </types>
+    <types>
+        <members>Dispense_Transaction__c</members>
+        <members>Lab_Test_Result__c</members>
+        <name>CustomObject</name>
+    </types>
+    <version>68.0</version>
+</Package>

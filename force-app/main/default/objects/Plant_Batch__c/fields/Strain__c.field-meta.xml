@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Strain__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <description>Genetics cultivar associated with this batch.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Genetics cultivar associated with this batch.</inlineHelpText>
+    <label>Strain</label>
+    <referenceTo>Strain__c</referenceTo>
+    <relationshipLabel>Plant Batches</relationshipLabel>
+    <relationshipName>Plant_Batches</relationshipName>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

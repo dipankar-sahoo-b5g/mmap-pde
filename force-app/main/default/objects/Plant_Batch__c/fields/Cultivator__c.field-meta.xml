@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cultivator__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <description>Licensed grower organization managing the batch.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Licensed grower organization managing the batch.</inlineHelpText>
+    <label>Cultivator Facility</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Plant Batches</relationshipLabel>
+    <relationshipName>Plant_Batches</relationshipName>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

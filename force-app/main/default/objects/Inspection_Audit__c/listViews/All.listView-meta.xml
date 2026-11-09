@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>Facility__c</columns>
+    <columns>Inspector__c</columns>
+    <columns>Inspection_Date__c</columns>
+    <columns>Inspection_Type__c</columns>
+    <columns>Audit_Score__c</columns>
+    <columns>Compliance_Grade__c</columns>
+    <columns>Status__c</columns>
+    <columns>Stop_Sale_Enacted__c</columns>
+    <columns>Stop_Sale_Timestamp__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>All Inspection Audits</label>
+</ListView>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Test_Date__c</fullName>
+    <description>Date laboratory completed testing panel.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Date laboratory completed testing panel.</inlineHelpText>
+    <label>Test Date</label>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

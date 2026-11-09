@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Inspection_Type__c</fullName>
+    <description>Regulatory classification and triggering context for the inspection audit.</description>
+    <inlineHelpText>Regulatory classification and triggering context for the inspection audit.</inlineHelpText>
+    <label>Inspection Type</label>
+    <required>true</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Annual Routine</fullName>
+                <default>true</default>
+                <label>Annual Routine</label>
+            </value>
+            <value>
+                <fullName>Unannounced Compliance</fullName>
+                <default>false</default>
+                <label>Unannounced Compliance</label>
+            </value>
+            <value>
+                <fullName>Follow-Up Re-Inspection</fullName>
+                <default>false</default>
+                <label>Follow-Up Re-Inspection</label>
+            </value>
+            <value>
+                <fullName>Adverse Event Investigation</fullName>
+                <default>false</default>
+                <label>Adverse Event Investigation</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

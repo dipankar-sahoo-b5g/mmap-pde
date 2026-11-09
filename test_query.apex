@@ -1,0 +1,10 @@
+HttpRequest req = new HttpRequest();
+req.setEndpoint('callout:Data360_API/services/a360/query/v2');
+req.setMethod('POST');
+req.setHeader('Content-Type', 'application/json');
+req.setHeader('Accept', 'application/json');
+req.setBody('{"sql":"SELECT Event_ID__c FROM MMAP_Telemetry__dlm LIMIT 1"}');
+Http h = new Http();
+HttpResponse res = h.send(req);
+System.debug('QUERY_STATUS: ' + res.getStatusCode());
+System.debug('QUERY_BODY: ' + res.getBody());

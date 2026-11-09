@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CBD_Potency_Pct__c</fullName>
+    <description>Verified cannabidiol concentration.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Verified cannabidiol concentration.</inlineHelpText>
+    <label>CBD Potency (%)</label>
+    <precision>5</precision>
+    <required>true</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Percent</type>
+</CustomField>

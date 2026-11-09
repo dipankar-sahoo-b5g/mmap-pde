@@ -1,0 +1,52 @@
+openapi: 3.0.3
+info:
+  title: MMAP Telemetry Data Cloud Ingestion API
+  description: Native Salesforce Data Cloud Ingestion API schema for the Commonwealth Medical Marijuana Regulatory Platform Lakehouse.
+  version: 1.0.0
+components:
+  schemas:
+    MMAP_Telemetry_Event:
+      type: object
+      description: Medical Marijuana Commonwealth Telemetry and RFID Lakehouse Event.
+      required:
+        - eventId
+        - rfidTag
+        - eventTimestamp
+      properties:
+        eventId:
+          type: string
+          description: High-entropy UUID identifying the event uniquely across org boundaries.
+          example: EVT-1793968853465-147384
+        rfidTag:
+          type: string
+          description: 24-character Commonwealth tracking tag GS1 and EPC compliant.
+          example: 1A4000312678D88325136FEF
+        facilityId:
+          type: string
+          description: 18-character Salesforce Record ID of the holding or originating facility.
+          example: 001hm00000AOebMAAT
+        roomLocation:
+          type: string
+          description: Precise physical premise zone.
+          example: Vault Alpha - Secured Shelf 4
+        metricReading:
+          type: number
+          description: Sensor measurement or gross mass scale reading in grams.
+          example: 530.00
+        actionType:
+          type: string
+          description: Classification of the operational or compliance event.
+          example: RFID_SCAN
+        operatorUserId:
+          type: string
+          description: 18-character User ID of the operator or automated batch agent.
+          example: 005hm000002oKYfAAM
+        eventTimestamp:
+          type: string
+          format: date-time
+          description: High-precision UTC timestamp of physical event occurrence.
+          example: '2026-11-08T12:40:53Z'
+        isArchived:
+          type: boolean
+          description: Flags regulatory soft-delete or cold archival status.
+          example: false

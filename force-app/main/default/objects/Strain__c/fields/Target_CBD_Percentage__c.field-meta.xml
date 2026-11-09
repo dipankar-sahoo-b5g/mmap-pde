@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Target_CBD_Percentage__c</fullName>
+    <description>Expected typical CBD concentration.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Expected typical CBD concentration.</inlineHelpText>
+    <label>Target CBD Percentage</label>
+    <precision>5</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Percent</type>
+</CustomField>

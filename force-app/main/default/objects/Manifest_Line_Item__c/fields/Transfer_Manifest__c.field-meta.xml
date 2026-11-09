@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Transfer_Manifest__c</fullName>
+    <description>Parent transfer manifest governing this line item.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Parent transfer manifest governing this line item.</inlineHelpText>
+    <label>Transfer Manifest</label>
+    <referenceTo>Transfer_Manifest__c</referenceTo>
+    <relationshipLabel>Manifest Line Items</relationshipLabel>
+    <relationshipName>Manifest_Line_Items</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>true</writeRequiresMasterRead>
+</CustomField>

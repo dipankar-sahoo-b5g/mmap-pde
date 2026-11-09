@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Product_Package__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Specific serialized inventory unit assigned to this manifest shipment.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Specific serialized inventory unit assigned to this manifest shipment.</inlineHelpText>
+    <label>Product Package</label>
+    <referenceTo>Product_Package__c</referenceTo>
+    <relationshipLabel>Manifest Line Items</relationshipLabel>
+    <relationshipName>Manifest_Line_Items</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

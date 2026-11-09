@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RFID_Tag__c</fullName>
+    <caseSensitive>false</caseSensitive>
+    <description>Serialized physical barcode / RFID tag affixed to unit.</description>
+    <externalId>true</externalId>
+    <inlineHelpText>Serialized physical barcode / RFID tag affixed to unit.</inlineHelpText>
+    <label>State RFID Tag</label>
+    <length>24</length>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

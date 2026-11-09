@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Finding_Category__c</fullName>
+    <description>Regulatory inspection compliance category cited in this finding.</description>
+    <inlineHelpText>Regulatory inspection compliance category cited in this finding.</inlineHelpText>
+    <label>Finding Category</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Security &amp; Surveillance</fullName>
+                <default>false</default>
+                <label>Security &amp; Surveillance</label>
+            </value>
+            <value>
+                <fullName>Vault Scale Calibration</fullName>
+                <default>false</default>
+                <label>Vault Scale Calibration</label>
+            </value>
+            <value>
+                <fullName>Pesticide / Chemical Storage</fullName>
+                <default>false</default>
+                <label>Pesticide / Chemical Storage</label>
+            </value>
+            <value>
+                <fullName>Sanitation &amp; Hygiene</fullName>
+                <default>false</default>
+                <label>Sanitation &amp; Hygiene</label>
+            </value>
+            <value>
+                <fullName>Diversion Discrepancy</fullName>
+                <default>false</default>
+                <label>Diversion Discrepancy</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

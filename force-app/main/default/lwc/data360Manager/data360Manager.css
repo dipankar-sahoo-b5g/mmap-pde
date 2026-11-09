@@ -1,0 +1,71 @@
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.toolbar-container {
+    background-color: #fafaf9;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.font-mono {
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+}
+
+.font-medium {
+    font-weight: 500;
+}
+
+.rfid-badge {
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #014486;
+}
+
+.count-badge {
+    font-weight: 600;
+    background-color: #f3f3f3;
+    border: 1px solid #dddbda;
+}
+
+.spinner-container {
+    height: 180px;
+}
+
+.datatable-container {
+    min-height: 220px;
+    background-color: #ffffff;
+}
+
+/* Action Type Badges */
+.badge-action-move {
+    color: #014486;
+    font-weight: 600;
+}
+
+.badge-action-scan {
+    color: #2e844a;
+    font-weight: 600;
+}
+
+.badge-action-sample {
+    color: #b05a00;
+    font-weight: 600;
+}
+
+.badge-action-dispensed {
+    color: #7f22a7;
+    font-weight: 600;
+}
+
+/* Status Badges */
+.status-active {
+    color: #2e844a;
+    font-weight: 600;
+}
+
+.status-archived {
+    color: #706e6b;
+    font-style: italic;
+    text-decoration: line-through;
+}

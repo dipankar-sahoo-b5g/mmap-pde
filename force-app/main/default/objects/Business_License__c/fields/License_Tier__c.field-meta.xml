@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>License_Tier__c</fullName>
+    <description>Operating scale and fee authorization tier.</description>
+    <inlineHelpText>Operating scale and fee authorization tier.</inlineHelpText>
+    <label>License Tier</label>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Standard_Commercial</fullName>
+                <default>false</default>
+                <label>Standard_Commercial</label>
+            </value>
+            <value>
+                <fullName>Microbusiness</fullName>
+                <default>false</default>
+                <label>Microbusiness</label>
+            </value>
+            <value>
+                <fullName>Research_Academic</fullName>
+                <default>false</default>
+                <label>Research_Academic</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

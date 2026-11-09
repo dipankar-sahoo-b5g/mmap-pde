@@ -1,0 +1,93 @@
+openapi: 3.0.3
+info:
+  title: 'MMAP_Telemetry Object Endpoints'
+  description: 'MMAP_Telemetry Object Endpoints'
+  version: 1.0.0
+servers:
+  -
+    url: 'https://gnrwmzrvgzstmnjqgyygmnrqgy.c360a.salesforce.com/api/v1/ingest/sources/MMAP_Telemetry'
+paths:
+  /MMAP_Telemetry_Event:
+    post:
+      summary: 'Upsert MMAP_Telemetry_Event records'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                data: {type: array, items: {$ref: '#/components/schemas/MMAP_Telemetry_Event'}}
+      responses:
+        '202':
+          description: Accepted
+        '204':
+          description: 'No Content'
+        '400':
+          description: 'Bad Request'
+        '401':
+          description: Unauthorized
+        '404':
+          description: 'Not Found'
+        '500':
+          description: 'Internal Server Error'
+    delete:
+      summary: 'Delete MMAP_Telemetry_Event records'
+      parameters:
+        -
+          in: query
+          name: ids
+          schema:
+            type: array
+            items:
+              oneOf:
+                - {type: string}
+                - {type: integer}
+            minItems: 1
+            maxItems: 200
+          examples:
+            integerIds:
+              value:
+                - 1
+                - 2
+                - 3
+              summary: 'Array of integer Ids'
+          required: true
+          style: form
+          explode: false
+          description: 'Id of MMAP_Telemetry_Event'
+      responses:
+        '202':
+          description: Accepted
+        '400':
+          description: 'Bad Request'
+        '401':
+          description: Unauthorized
+        '404':
+          description: 'Not Found'
+        '500':
+          description: 'Internal Server Error'
+components:
+  schemas:
+    MMAP_Telemetry_Event:
+      type: object
+      properties:
+        eventId:
+          type: string
+        rfidTag:
+          type: string
+        facilityId:
+          type: string
+        roomLocation:
+          type: string
+        metricReading:
+          type: number
+        actionType:
+          type: string
+        operatorUserId:
+          type: string
+        eventTimestamp:
+          type: string
+          format: date-time
+        isArchived:
+          type: boolean

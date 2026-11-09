@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VR_AUDIT_Valid_Score</fullName>
+    <active>true</active>
+    <description>Enforces that the inspection audit score must be within the valid range of 0 to 100 inclusive.</description>
+    <errorConditionFormula>Audit_Score__c &lt; 0 || Audit_Score__c &gt; 100</errorConditionFormula>
+    <errorDisplayField>Audit_Score__c</errorDisplayField>
+    <errorMessage>Inspection Audit Score must be between 0 and 100.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>Patient_Registration__c.Barcode_String__c</members>
+        <members>Patient_Registration__c.Certification_Date__c</members>
+        <members>Patient_Registration__c.Certifying_Physician__c</members>
+        <members>Patient_Registration__c.Expiration_Date__c</members>
+        <members>Patient_Registration__c.Is_Active__c</members>
+        <members>Patient_Registration__c.Patient__c</members>
+        <members>Patient_Registration__c.Thirty_Day_Limit_Grams__c</members>
+        <name>CustomField</name>
+    </types>
+    <types>
+        <members>Patient_Registration__c</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>Patient_Registration__c.VR_PAT_Active_Date</members>
+        <name>ValidationRule</name>
+    </types>
+    <version>68.0</version>
+</Package>

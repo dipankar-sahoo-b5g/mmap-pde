@@ -1,0 +1,219 @@
+<template>
+    <lightning-card title="Data 360 Lakehouse Telemetry" icon-name="standard:data_streams">
+        <!-- Card Header Actions -->
+        <div slot="actions" class="slds-grid slds-grid_vertical-align-center slds-gutter_small">
+            <div class="slds-col">
+                <lightning-button-icon
+                    icon-name="utility:refresh"
+                    alternative-text="Refresh Telemetry"
+                    title="Refresh"
+                    onclick={handleRefresh}
+                    disabled={isLoading}>
+                </lightning-button-icon>
+            </div>
+            <div class="slds-col">
+                <lightning-button
+                    label="Log Telemetry Event"
+                    icon-name="utility:add"
+                    variant="brand"
+                    onclick={handleOpenLogModal}
+                    disabled={isLoading}>
+                </lightning-button>
+            </div>
+        </div>
+
+        <!-- Banner / Metadata Ribbon -->
+        <div class="slds-p-horizontal_medium slds-p-bottom_small border-bottom">
+            <div class="slds-grid slds-wrap slds-grid_vertical-align-center slds-gutter_medium">
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12">
+                    <div class="slds-text-title slds-text-color_weak">TRACKING IDENTIFIER / RFID</div>
+                    <div class="slds-text-heading_small slds-truncate font-mono" title={rfidTag}>
+                        <lightning-badge label={rfidTag} class="slds-badge_lightest rfid-badge"></lightning-badge>
+                    </div>
+                </div>
+                <div class="slds-col slds-size_1-of-2 slds-medium-size_4-of-12">
+                    <div class="slds-text-title slds-text-color_weak">ORIGINATING FACILITY</div>
+                    <div class="slds-text-body_regular slds-truncate font-medium">{facilityIdDisplay}</div>
+                </div>
+                <div class="slds-col slds-size_1-of-2 slds-medium-size_4-of-12 slds-text-align_right">
+                    <div class="slds-text-title slds-text-color_weak">TOTAL AUDIT LOGS</div>
+                    <div class="slds-badge slds-theme_default count-badge">
+                        {totalCount} Total Event{pluralS}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filter & Search Toolbar -->
+        <div class="slds-p-around_medium slds-color__background_gray-1 toolbar-container">
+            <div class="slds-grid slds-wrap slds-grid_vertical-align-center slds-gutter_small">
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12">
+                    <lightning-input
+                        type="search"
+                        variant="label-hidden"
+                        placeholder="Filter by Room, Action Type, or Operator..."
+                        value={searchKey}
+                        onchange={handleSearchChange}>
+                    </lightning-input>
+                </div>
+                <div class="slds-col slds-size_1-of-2 slds-medium-size_4-of-12 slds-p-top_xx-small">
+                    <lightning-input
+                        type="checkbox"
+                        label="Include Archived Events"
+                        checked={showArchived}
+                        onchange={handleArchivedToggle}>
+                    </lightning-input>
+                </div>
+                <div class="slds-col slds-size_1-of-2 slds-medium-size_2-of-12 slds-text-align_right">
+                    <span class="slds-text-body_small slds-text-color_weak">
+                        Showing <strong>{filteredRecordCount}</strong> of {totalCount}
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Spinner -->
+        <template if:true={isLoading}>
+            <div class="slds-is-relative spinner-container">
+                <lightning-spinner alternative-text="Loading Telemetry Stream" size="medium"></lightning-spinner>
+            </div>
+        </template>
+
+        <!-- Records Table -->
+        <template if:false={isLoading}>
+            <template if:true={hasRecords}>
+                <div class="datatable-container">
+                    <lightning-datatable
+                        key-field="eventId"
+                        data={filteredRecords}
+                        columns={columns}
+                        hide-checkbox-column
+                        onrowaction={handleRowAction}
+                        class="slds-table_striped">
+                    </lightning-datatable>
+                </div>
+            </template>
+
+            <!-- Empty State Illustration -->
+            <template if:false={hasRecords}>
+                <div class="slds-illustration slds-illustration_small slds-p-around_large slds-text-align_center">
+                    <div class="slds-text-heading_medium slds-m-top_medium">No Telemetry Events Found</div>
+                    <div class="slds-text-body_regular slds-text-color_weak slds-m-top_x-small">
+                        No telemetry logs match the current search filters or none have been streamed yet from Data 360.
+                    </div>
+                    <div class="slds-m-top_medium">
+                        <lightning-button
+                            label="Log First Telemetry Event"
+                            variant="brand"
+                            icon-name="utility:add"
+                            onclick={handleOpenLogModal}>
+                        </lightning-button>
+                    </div>
+                </div>
+            </template>
+        </template>
+    </lightning-card>
+
+    <!-- Modal 1: Log Telemetry Event -->
+    <template if:true={isLogModalOpen}>
+        <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open slds-modal_small" aria-modal="true">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={handleCloseLogModal}>
+                        <lightning-icon icon-name="utility:close" alternative-text="close" size="small"></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h2 class="slds-text-heading_medium slds-hyphenate">Stream New Telemetry Event</h2>
+                    <p class="slds-m-top_x-small slds-text-color_weak">
+                        Send physical telemetry or RFID checkpoint into Data 360 Lakehouse.
+                    </p>
+                </header>
+
+                <div class="slds-modal__content slds-p-around_medium">
+                    <div class="slds-m-bottom_small">
+                        <div class="slds-text-title slds-text-color_weak">Target State RFID Tag</div>
+                        <div class="slds-m-top_xx-small">
+                            <lightning-badge label={rfidTag}></lightning-badge>
+                        </div>
+                    </div>
+
+                    <lightning-combobox
+                        label="Action Type"
+                        required
+                        value={newActionType}
+                        placeholder="Select Action Type"
+                        options={actionTypeOptions}
+                        onchange={handleActionTypeChange}
+                        class="slds-m-bottom_small">
+                    </lightning-combobox>
+
+                    <lightning-input
+                        type="text"
+                        label="Room / Zone Location"
+                        required
+                        value={newRoomLocation}
+                        onchange={handleRoomLocationChange}
+                        class="slds-m-bottom_small">
+                    </lightning-input>
+
+                    <lightning-input
+                        type="number"
+                        step="0.01"
+                        label="Metric Reading (Grams / Value)"
+                        value={newMetricReading}
+                        onchange={handleMetricReadingChange}
+                        class="slds-m-bottom_small">
+                    </lightning-input>
+                </div>
+
+                <footer class="slds-modal__footer">
+                    <lightning-button label="Cancel" onclick={handleCloseLogModal} class="slds-m-right_x-small"></lightning-button>
+                    <lightning-button label="Stream to Lakehouse" variant="brand" onclick={handleSubmitLogEvent} disabled={isSubmitting}></lightning-button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+
+    <!-- Modal 2: Edit Telemetry Event -->
+    <template if:true={isEditModalOpen}>
+        <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open slds-modal_small" aria-modal="true">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={handleCloseEditModal}>
+                        <lightning-icon icon-name="utility:close" alternative-text="close" size="small"></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h2 class="slds-text-heading_medium slds-hyphenate">Update Telemetry Log</h2>
+                    <p class="slds-m-top_x-small slds-text-color_weak font-mono">Event: {editingEventId}</p>
+                </header>
+
+                <div class="slds-modal__content slds-p-around_medium">
+                    <lightning-input
+                        type="text"
+                        label="Room / Zone Location"
+                        required
+                        value={editRoomLocation}
+                        onchange={handleEditRoomChange}
+                        class="slds-m-bottom_small">
+                    </lightning-input>
+
+                    <lightning-input
+                        type="number"
+                        step="0.01"
+                        label="Metric Reading (Grams / Value)"
+                        value={editMetricReading}
+                        onchange={handleEditMetricChange}
+                        class="slds-m-bottom_small">
+                    </lightning-input>
+                </div>
+
+                <footer class="slds-modal__footer">
+                    <lightning-button label="Cancel" onclick={handleCloseEditModal} class="slds-m-right_x-small"></lightning-button>
+                    <lightning-button label="Save Changes" variant="brand" onclick={handleSaveEditEvent} disabled={isSubmitting}></lightning-button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+</template>

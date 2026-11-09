@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Origin_Facility__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <description>The originating licensed commercial facility transferring cannabis inventory.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The originating licensed commercial facility transferring cannabis inventory.</inlineHelpText>
+    <label>Origin Facility</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Outbound Transfer Manifests</relationshipLabel>
+    <relationshipName>Outbound_Transfer_Manifests</relationshipName>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

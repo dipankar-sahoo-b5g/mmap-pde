@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Transporter_Facility__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>The licensed transporter or third-party logistics entity executing the transfer.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The licensed transporter or third-party logistics entity executing the transfer.</inlineHelpText>
+    <label>Transporter Facility</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Transported Manifests</relationshipLabel>
+    <relationshipName>Transported_Manifests</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

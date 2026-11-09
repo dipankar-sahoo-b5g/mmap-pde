@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>Account.Compliance_Status__c</members>
+        <members>Account.Facility_Type__c</members>
+        <members>Account.Premise_Registry_ID__c</members>
+        <members>Account.Vault_Capacity_Grams__c</members>
+        <members>Business_License__c.Expiration_Date__c</members>
+        <members>Business_License__c.Facility__c</members>
+        <members>Business_License__c.Issue_Date__c</members>
+        <members>Business_License__c.License_Number__c</members>
+        <members>Business_License__c.License_Tier__c</members>
+        <members>Business_License__c.Status__c</members>
+        <members>Contact.Medical_License_No__c</members>
+        <members>Contact.Stakeholder_Role__c</members>
+        <members>Contact.State_ID_Number__c</members>
+        <name>CustomField</name>
+    </types>
+    <types>
+        <members>Business_License__c</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>Business_License__c.VR_LIC_Valid_Dates</members>
+        <name>ValidationRule</name>
+    </types>
+    <version>68.0</version>
+</Package>

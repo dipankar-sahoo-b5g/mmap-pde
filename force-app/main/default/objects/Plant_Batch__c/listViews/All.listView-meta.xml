@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>Cultivator__c</columns>
+    <columns>Strain__c</columns>
+    <columns>Growth_Stage__c</columns>
+    <columns>Current_Plant_Count__c</columns>
+    <columns>Room_Location__c</columns>
+    <columns>Planted_Date__c</columns>
+    <columns>Harvest_Date__c</columns>
+    <columns>Dry_Weight_Grams__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>All Plant Batches</label>
+</ListView>
+

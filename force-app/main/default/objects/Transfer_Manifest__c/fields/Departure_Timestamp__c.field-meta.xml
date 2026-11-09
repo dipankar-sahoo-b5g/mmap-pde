@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Departure_Timestamp__c</fullName>
+    <description>Exact date and time the transport departed the originating facility.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Exact date and time the transport departed the originating facility.</inlineHelpText>
+    <label>Departure Timestamp</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+</CustomField>

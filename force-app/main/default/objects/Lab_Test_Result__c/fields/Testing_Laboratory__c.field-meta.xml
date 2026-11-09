@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Testing_Laboratory__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <description>Certified laboratory organization performing test.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Certified laboratory organization performing test.</inlineHelpText>
+    <label>Testing Laboratory</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Lab Test Results</relationshipLabel>
+    <relationshipName>Lab_Test_Results</relationshipName>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

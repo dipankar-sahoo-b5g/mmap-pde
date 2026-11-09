@@ -1,0 +1,191 @@
+:host {
+    display: block;
+}
+
+.mmap-header-card {
+    border-left: 5px solid #0B5C43;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.mmap-title {
+    color: #0B5C43;
+    font-weight: 700;
+    font-size: 1.25rem;
+}
+
+.mmap-badge {
+    font-size: 0.85rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge-draft {
+    background-color: #e2e8f0;
+    color: #475569;
+}
+
+.badge-dispatched {
+    background-color: #dbeafe;
+    color: #1e40af;
+}
+
+.badge-in-transit {
+    background-color: #fef3c7;
+    color: #b45309;
+}
+
+.badge-delivered {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+.badge-rejected {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+/* 3-Step Chain-of-Custody Progression */
+.custody-steps-container {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin: 1.5rem 0;
+}
+
+.custody-step-card {
+    flex: 1;
+    margin: 0 0.5rem;
+    padding: 1rem;
+    border-radius: 8px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.custody-step-card.completed {
+    background: #f0fdf4;
+    border-color: #86efac;
+}
+
+.custody-step-card.active {
+    background: #eff6ff;
+    border-color: #93c5fd;
+    box-shadow: 0 0 0 2px #3b82f6;
+}
+
+.custody-step-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.step-indicator {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.85rem;
+    margin-right: 0.75rem;
+    background-color: #cbd5e1;
+    color: #334155;
+}
+
+.completed .step-indicator {
+    background-color: #22c55e;
+    color: #ffffff;
+}
+
+.active .step-indicator {
+    background-color: #3b82f6;
+    color: #ffffff;
+}
+
+.step-title {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #1e293b;
+}
+
+.signature-display {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.8rem;
+    background: #f1f5f9;
+    padding: 0.4rem 0.6rem;
+    border-radius: 4px;
+    color: #0f172a;
+    border-left: 3px solid #22c55e;
+    word-break: break-all;
+}
+
+.signature-pending {
+    font-style: italic;
+    color: #94a3b8;
+    font-size: 0.85rem;
+}
+
+/* Facility & Route Summary Cards */
+.manifest-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.summary-tile {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 1rem;
+}
+
+.summary-tile-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #64748b;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.25rem;
+}
+
+.summary-tile-value {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.summary-tile-sub {
+    font-size: 0.8rem;
+    color: #64748b;
+}
+
+/* Attestation Box */
+.attestation-box {
+    background: #fffbeb;
+    border: 1px solid #fef3c7;
+    border-left: 4px solid #f59e0b;
+    padding: 0.75rem 1rem;
+    border-radius: 4px;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: #92400e;
+}
+
+/* Responsive adjustment */
+@media (max-width: 768px) {
+    .custody-steps-container {
+        flex-direction: column;
+    }
+    .custody-step-card {
+        margin: 0.5rem 0;
+    }
+}

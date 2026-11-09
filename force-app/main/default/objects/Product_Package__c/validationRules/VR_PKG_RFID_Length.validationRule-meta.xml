@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VR_PKG_RFID_Length</fullName>
+    <active>true</active>
+    <description>RFID tracking tag must be exactly 24 characters in length.</description>
+    <errorConditionFormula>LEN(RFID_Tag__c) != 24</errorConditionFormula>
+    <errorDisplayField>RFID_Tag__c</errorDisplayField>
+    <errorMessage>RFID tracking tag must be exactly 24 characters in length.</errorMessage>
+</ValidationRule>

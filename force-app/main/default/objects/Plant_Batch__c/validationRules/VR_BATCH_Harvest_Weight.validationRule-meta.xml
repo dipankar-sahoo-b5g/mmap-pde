@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VR_BATCH_Harvest_Weight</fullName>
+    <active>true</active>
+    <description>You must enter dry harvest weight before setting batch stage to Harvested.</description>
+    <errorConditionFormula>AND(ISPICKVAL(Growth_Stage__c, &apos;Harvested&apos;), ISBLANK(Dry_Weight_Grams__c))</errorConditionFormula>
+    <errorDisplayField>Dry_Weight_Grams__c</errorDisplayField>
+    <errorMessage>You must enter dry harvest weight before setting batch stage to Harvested.</errorMessage>
+</ValidationRule>

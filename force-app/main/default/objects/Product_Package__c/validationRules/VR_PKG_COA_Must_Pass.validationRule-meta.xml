@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VR_PKG_COA_Must_Pass</fullName>
+    <active>true</active>
+    <description>Packages cannot be marked Ready for Sale until the laboratory safety status is Passed.</description>
+    <errorConditionFormula>AND(ISPICKVAL(Package_Status__c, &apos;Ready_for_Sale&apos;), NOT(ISPICKVAL(Lab_Safety_Status__c, &apos;Passed&apos;)))</errorConditionFormula>
+    <errorDisplayField>Package_Status__c</errorDisplayField>
+    <errorMessage>Packages cannot be marked Ready for Sale until the laboratory safety status is Passed.</errorMessage>
+</ValidationRule>

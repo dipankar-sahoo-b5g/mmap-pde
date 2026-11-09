@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VR_MNF_Different_Facilities</fullName>
+    <active>true</active>
+    <description>Enforces that the origin facility and destination facility cannot be identical.</description>
+    <errorConditionFormula>Origin_Facility__c == Destination_Facility__c &amp;&amp; !ISBLANK(Origin_Facility__c)</errorConditionFormula>
+    <errorDisplayField>Destination_Facility__c</errorDisplayField>
+    <errorMessage>Origin facility and Destination facility cannot be the same commercial premise.</errorMessage>
+</ValidationRule>

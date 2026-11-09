@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tag_ID__c</fullName>
+    <description>RFID Tracking Tag Identifier for regulatory audit and lakehouse pipeline synchronization.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Serialized RFID Tag Identifier for inventory and lakehouse tracking.</inlineHelpText>
+    <label>Tag ID</label>
+    <length>50</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_Active__c</fullName>
+    <defaultValue>true</defaultValue>
+    <description>Allows discontinuing outdated genetics.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Allows discontinuing outdated genetics.</inlineHelpText>
+    <label>Active In Catalog</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>
