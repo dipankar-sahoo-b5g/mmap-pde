@@ -32,6 +32,8 @@
         <members>PortalNavigationControllerTest</members>
         <members>PermitteeDataFoundationService</members>
         <members>PermitteeDataFoundationServiceTest</members>
+        <members>PermitteeUserProvisioningService</members>
+        <members>PermitteeUserProvisioningServiceTest</members>
         <name>ApexClass</name>
     </types>
     <types>
