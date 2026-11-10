@@ -30,6 +30,8 @@
         <members>RegistryServiceCalloutTest</members>
         <members>PortalNavigationController</members>
         <members>PortalNavigationControllerTest</members>
+        <members>PermitteeDataFoundationService</members>
+        <members>PermitteeDataFoundationServiceTest</members>
         <name>ApexClass</name>
     </types>
     <types>
