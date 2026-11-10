@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Manifest__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>Transfer Manifest</label>
+    <referenceTo>Transfer_Manifest__c</referenceTo>
+    <relationshipLabel>Manifest Lines</relationshipLabel>
+    <relationshipName>Manifest_Lines</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>
+
