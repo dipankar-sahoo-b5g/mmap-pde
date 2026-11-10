@@ -68,3 +68,15 @@
 - **Comprehensive Component Coverage**: Every package manifest must explicitly list all new and modified components for that feature (Apex classes, tests, custom fields, permissions, layouts, flexipages, sites, networks, experience bundles).
 - **Master Manifest Synchronization**: The master `manifest/package.xml` must also be updated to include all newly introduced metadata components so the entire repository remains 100% deployable as a cohesive whole.
 - **Obsolete Manifest Segregation**: Any historical or legacy manifests created outside the authoritative Excel Demo Plan (`docs/PA Seed-to-Sale Demo Plan_7.xlsx`) must be segregated into `manifest/obsolete/` and never used for active deployments.
+
+---
+
+## 9. Business Analyst & Product Owner Manual Test Protocol
+- **Mandatory Manual Test Walkthrough for Every Feature/Task**: For EVERY feature, task, or phase build in implementation plans and completion reports, a dedicated **"Business Analyst & Product Owner Manual Test Walkthrough"** MUST be documented.
+- **Actionable Step-by-Step UI Instructions**: Every walkthrough must explicitly define:
+  1. **Exact UI Navigation Path**: Setup menus, App Launcher apps, Object Tabs, Experience Builder page selectors, or portal URLs.
+  2. **Records, List Views & Canvas to Inspect**: The exact record names, filter names, layouts, or components to open.
+  3. **Data & Badge Verifications**: Specific field values, picklists, badges, or UI behaviors to inspect.
+  4. **Acceptance Criteria**: Crystal-clear expected outcomes (e.g., zero record visibility under Private OWD, automatic workspace dispatch, etc.).
+- **Zero Technical Jargon Barrier**: Write test instructions so that a Business Analyst, Product Owner, or non-technical regulatory stakeholder can log into the org and independently verify the business functionality in under 2 minutes without writing SOQL or running CLI commands.
+
