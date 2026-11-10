@@ -248,6 +248,11 @@
     <types>
         <members>MMAP_Admin_PermSet</members>
         <members>MMAP_Inspector_PermSet</members>
+        <members>MMAP_GP_Cultivation</members>
+        <members>MMAP_GP_Processing</members>
+        <members>MMAP_GP_Compliance</members>
+        <members>MMAP_Lab_Analyst</members>
+        <members>MMAP_Dispensary_Mgr</members>
         <name>PermissionSet</name>
     </types>
     <types>
