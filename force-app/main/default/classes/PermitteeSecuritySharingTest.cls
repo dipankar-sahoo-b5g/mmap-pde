@@ -30,9 +30,22 @@ private class PermitteeSecuritySharingTest {
         Test.stopTest();
 
         System.assertNotEquals(null, report, 'Audit report should not be null');
-        System.assert(report.totalAudited > 0, 'Should audit at least 1 entity');
+        System.assertEquals(14, report.totalAudited, 'Must audit exactly 14 in-scope entities from PA Seed-to-Sale Demo Plan_7.xlsx');
+        System.assertEquals(true, report.allCoreObjectsPrivate, 'All 14 in-scope entities must be Private or ControlledByParent');
         System.assert(report.privateEntities.contains('Tracked_Item__c'), 'Tracked_Item__c must be Private');
+        System.assert(report.privateEntities.contains('Lineage_Link__c'), 'Lineage_Link__c must be Private');
+        System.assert(report.privateEntities.contains('Inventory_Event__c'), 'Inventory_Event__c must be Private');
+        System.assert(report.privateEntities.contains('Lab_Result__c'), 'Lab_Result__c must be Private');
+        System.assert(report.privateEntities.contains('Transfer_Manifest__c'), 'Transfer_Manifest__c must be Private');
+        System.assert(report.privateEntities.contains('Manifest_Line__c'), 'Manifest_Line__c must be Private');
+        System.assert(report.privateEntities.contains('Patient_Ref__c'), 'Patient_Ref__c must be Private');
+        System.assert(report.privateEntities.contains('Registry_Check__c'), 'Registry_Check__c must be Private');
+        System.assert(report.privateEntities.contains('Label_Template__c'), 'Label_Template__c must be Private');
+        System.assert(report.privateEntities.contains('Label_Print__c'), 'Label_Print__c must be Private');
+        System.assert(report.privateEntities.contains('Recall__c'), 'Recall__c must be Private');
+        System.assert(report.privateEntities.contains('Recall_Exposure__c'), 'Recall_Exposure__c must be ControlledByParent');
         System.assert(report.privateEntities.contains('Account'), 'Account must be Private');
+        System.assert(report.privateEntities.contains('Contact'), 'Contact must be Private');
     }
 
     @IsTest
