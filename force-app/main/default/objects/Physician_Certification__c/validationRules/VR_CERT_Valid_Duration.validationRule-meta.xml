@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>VR_CERT_Valid_Duration</fullName>
-    <active>true</active>
-    <description>Certification expiration date must be after the issue date and cannot exceed 12 months statutory validity.</description>
-    <errorConditionFormula>Expiration_Date__c &lt;= Issue_Date__c || Expiration_Date__c &gt; Issue_Date__c + 365</errorConditionFormula>
-    <errorDisplayField>Expiration_Date__c</errorDisplayField>
-    <errorMessage>Certification expiration date must be after the issue date and cannot exceed 12 months statutory validity.</errorMessage>
-</ValidationRule>

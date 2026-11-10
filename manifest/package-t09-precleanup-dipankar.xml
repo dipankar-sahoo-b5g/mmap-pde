@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>MMAP_Admin_PermSet</members>
+        <members>MMAP_Dispensary_Mgr</members>
+        <members>MMAP_GP_Compliance</members>
+        <members>MMAP_Inspector_PermSet</members>
+        <members>MMAP_Lab_Analyst</members>
+        <name>PermissionSet</name>
+    </types>
+    <types>
+        <members>MMAP_Console_App</members>
+        <name>CustomApplication</name>
+    </types>
+    <version>62.0</version>
+</Package>

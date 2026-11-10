@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>VR_APP_Canopy_Required_For_Grower</fullName>
-    <active>true</active>
-    <description>Estimated canopy square footage is mandatory and must be greater than zero for Grower/Processor applications.</description>
-    <errorConditionFormula>ISPICKVAL(Application_Type__c, &apos;Grower/Processor&apos;) &amp;&amp; (ISBLANK(Estimated_Canopy_SqFt__c) || Estimated_Canopy_SqFt__c &lt;= 0)</errorConditionFormula>
-    <errorDisplayField>Estimated_Canopy_SqFt__c</errorDisplayField>
-    <errorMessage>Estimated canopy square footage is mandatory and must be greater than zero for Grower/Processor applications.</errorMessage>
-</ValidationRule>

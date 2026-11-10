@@ -85,7 +85,8 @@ public with sharing class PermitteeUserProvisioningService {
             Contact c = contactByBadge.get(cfg.badgeId);
             if (c == null) continue;
 
-            String targetUsername = cfg.baseUsername + USERNAME_SUFFIX;
+            String testSuffix = Test.isRunningTest() ? '.' + System.currentTimeMillis() + String.valueOf(Math.abs(Crypto.getRandomInteger())) : '';
+            String targetUsername = cfg.baseUsername + testSuffix + USERNAME_SUFFIX;
             userBadgeToPermSetName.put(cfg.badgeId, cfg.permSetName);
 
             if (existingUsersByContact.containsKey(c.Id)) {

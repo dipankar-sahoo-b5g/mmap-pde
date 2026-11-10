@@ -1,5 +1,0 @@
-<design:component label="Full Width Single Column Home Template">
-    <flexipage:template>
-        <flexipage:region name="main" defaultWidth="LARGE" />
-    </flexipage:template>
-</design:component>

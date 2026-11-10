@@ -31,20 +31,33 @@ The following 10 historical documents have been renamed with the `OBSOLETE_` pre
 
 ---
 
-## 2. Decommissioning & Destructive Manifest Reference (Deferred)
+## 2. Decommissioning & Destructive Cleanup (Executed & In Progress)
 
-> [!NOTE]
-> **Operational Directive on Deletion**
-> In accordance with user instructions, active metadata deletion in the org is **skipped for now** to avoid disrupting ongoing work. The turnkey `destructiveChanges.xml` below is fully ready to deploy whenever the team schedules the cleanup.
+> [!IMPORTANT]
+> **Operational Directive on Deletion & Retention**
+> Phase 1 Destructive Changes have been successfully executed against the Core CRM org (`pmarijuna-partner-dev-org`, Deploy ID: `0Afhm000001u6mvCAA`), purging 113 obsolete metadata components. Per user instructions, `Plant_Batch__c`, `Product_Package__c`, and the entire Data 360 Lakehouse Telemetry pipeline have been **strictly preserved and remain 100% active**. Local repository cleanup and master manifest synchronization are currently in progress.
 
-### Obsolete Metadata Inventory
-| Category | Obsolete Items (Frozen) | Superseded By (`PA Seed-to-Sale Demo Plan_7.xlsx`) |
+### Metadata Architecture & Deletion Governance
+
+#### Preserved Operational & Telemetry Components (Retained)
+To ensure that historical telemetry logs and live streaming to Data Cloud Lakehouse (`data-cloud-dev-org-1`) remain 100% active and healthy, the following core CRM components are **explicitly preserved and excluded from destructive changes**:
+* **Telemetry Core Objects**: `Plant_Batch__c` (Custom Object, Fields, Tab, FlexiPage) and `Product_Package__c` (Custom Object, Fields, Tab, FlexiPage). Kept to maintain the master telemetry data link and foreign key lookups.
+* **Lakehouse Hierarchy Setting**: `Data360_Configuration__c` (Protected Hierarchy Custom Setting storing Lakehouse ECA credentials and tenant endpoints with zero SOQL limit impact).
+* **Lakehouse Integration Pipeline**: `Data360Service`, `Data360Controller`, `Data360TelemetryArchivalBatch`, and unit tests (`Data360ControllerTest`, `Data360TelemetryArchivalBatchTest`).
+* **Package Automation & RFID**: `ProductPackageTrigger`, `ProductPackageTriggerHandler`, `ProductPackageTriggerTest`, and `RFIDGeneratorService`.
+* **Telemetry UI**: `data360Manager` Lightning Web Component.
+* **In-Scope Target Model**: All 11 custom objects (`Tracked_Item__c`, `Lineage_Link__c`, `Inventory_Event__c`, `Patient_Ref__c`, `Registry_Check__c`, `Lab_Result__c`, `Manifest_Line__c`, `Label_Template__c`, `Label_Print__c`, `Recall__c`, `Recall_Exposure__c`), Portal Containers, 5 Persona Workspaces, Dispatcher, and Mock Registry Service.
+
+#### Obsolete Metadata Inventory (Targeted for Deletion)
+| Category | Obsolete Items (Targeted for Deletion) | Superseded By (`PA Seed-to-Sale Demo Plan_7.xlsx`) |
 | :--- | :--- | :--- |
-| **Custom Objects** | `Plant_Batch__c`, `Product_Package__c`, `Dispense_Transaction__c`, `Inspection_Audit__c`, `Audit_Finding__c`, `Business_License__c`, `License_Application__c`, `Patient_Registration__c`, `Physician_Certification__c`, `Lab_Test_Result__c`, `Manifest_Line_Item__c`, `Data360_Configuration__c` | `Tracked_Item__c`, `Lineage_Link__c`, `Inventory_Event__c`, `Lab_Result__c`, `Manifest_Line__c`, `Patient_Ref__c`, `Registry_Check__c` |
-| **Apex Triggers** | `DispenseTransactionTrigger`, `ProductPackageTrigger`, `TransferManifestTrigger` | Triggers on `Tracked_Item__c`, `Inventory_Event__c`, `Transfer_Manifest__c` |
-| **Apex Services** | `Data360Controller`, `Data360Service`, `Data360TelemetryArchivalBatch`, `InspectionAuditController`, `LicenseApplicationController`, `PatientPortalController`, `ProductPackageTriggerHandler`, `PurchaseLimitService`, `QuarantineService`, `RFIDGeneratorService`, `SupplyChainExplorerController` | `RegistryMockRestService` (T26), Lineage Service (T03), Quarantine & Trace (T05), MMU Calculator (T27), Transfer Service (T09) |
-| **LWC Bundles** | `data360Manager`, `dualSignaturePad`, `inspectionAuditManager`, `licenseApplicationWizard`, `patientRegistrationCard`, `supplyChainExplorer` | `labelPreview` (T13), `traceTree` (T14), `tagIdLookup` (T15), Barcode library (T12) |
-| **Permission Sets** | `MMAP_Admin_PermSet`, `MMAP_Inspector_PermSet` | Persona Permission Sets (`G/P Cultivation`, `G/P Processing`, `G/P Compliance`, `Lab Analyst`, `Dispensary Manager`, `DOH Officer`) |
+| **Custom Objects** | `Audit_Finding__c`, `Business_License__c`, `Dispense_Transaction__c`, `Inspection_Audit__c`, `Lab_Test_Result__c`, `License_Application__c`, `Manifest_Line_Item__c`, `Patient_Registration__c`, `Physician_Certification__c` | `Tracked_Item__c`, `Lineage_Link__c`, `Inventory_Event__c`, `Lab_Result__c`, `Manifest_Line__c`, `Patient_Ref__c`, `Registry_Check__c` |
+| **Custom Tabs** | `Business_License__c`, `Dispense_Transaction__c`, `Inspection_Audit__c`, `Lab_Test_Result__c`, `License_Application__c`, `Patient_Registration__c`, `Physician_Certification__c` | In-Scope Workspace Navigation Tabs & Dynamic Dispatcher (`/s/*`) |
+| **FlexiPages** | `MMAP_Home_Page` | Permittee Workspaces (`MMAP_Workspace_Cultivation`, `MMAP_Workspace_Processing`, etc.) |
+| **Apex Triggers** | `DispenseTransactionTrigger`, `TransferManifestTrigger` | Triggers on `Tracked_Item__c`, `Inventory_Event__c`, `Transfer_Manifest__c` (Phase 4 / T09) |
+| **Apex Services** | `DispenseTransactionTriggerHandler`, `DispenseTransactionTriggerTest`, `InspectionAuditController`, `InspectionAuditControllerTest`, `LicenseApplicationController`, `LicenseApplicationControllerTest`, `PatientPortalController`, `PatientPortalControllerTest`, `PurchaseLimitService`, `QuarantineService`, `SupplyChainExplorerController`, `SupplyChainExplorerControllerTest`, `TransferManifestController`, `TransferManifestControllerTest`, `TransferManifestTriggerHandler` | `RegistryMockRestService` (T26), Lineage Service (T03), Quarantine & Trace (T05), MMU Calculator (T27), Transfer Service (T09) |
+| **LWC Bundles** | `dualSignaturePad`, `inspectionAuditManager`, `licenseApplicationWizard`, `patientRegistrationCard`, `supplyChainExplorer` | `labelPreview` (T13), `traceTree` (T14), `tagIdLookup` (T15), Barcode library (T12) |
+| **Aura Bundles** | `singleColumnHomeTemplate` | Modern Experience Cloud full-width flexipage templates |
 
 ### Turnkey `destructiveChanges.xml`
 ```xml
@@ -53,7 +66,6 @@ The following 10 historical documents have been renamed with the `OBSOLETE_` pre
     <types>
         <members>Audit_Finding__c</members>
         <members>Business_License__c</members>
-        <members>Data360_Configuration__c</members>
         <members>Dispense_Transaction__c</members>
         <members>Inspection_Audit__c</members>
         <members>Lab_Test_Result__c</members>
@@ -61,8 +73,6 @@ The following 10 historical documents have been renamed with the `OBSOLETE_` pre
         <members>Manifest_Line_Item__c</members>
         <members>Patient_Registration__c</members>
         <members>Physician_Certification__c</members>
-        <members>Plant_Batch__c</members>
-        <members>Product_Package__c</members>
         <name>CustomObject</name>
     </types>
     <types>
@@ -73,27 +83,18 @@ The following 10 historical documents have been renamed with the `OBSOLETE_` pre
         <members>License_Application__c</members>
         <members>Patient_Registration__c</members>
         <members>Physician_Certification__c</members>
-        <members>Plant_Batch__c</members>
-        <members>Product_Package__c</members>
         <name>CustomTab</name>
     </types>
     <types>
         <members>MMAP_Home_Page</members>
-        <members>Plant_Batch_Record_Page</members>
-        <members>Product_Package_Record_Page</members>
         <name>FlexiPage</name>
     </types>
     <types>
         <members>DispenseTransactionTrigger</members>
-        <members>ProductPackageTrigger</members>
+        <members>TransferManifestTrigger</members>
         <name>ApexTrigger</name>
     </types>
     <types>
-        <members>Data360Controller</members>
-        <members>Data360ControllerTest</members>
-        <members>Data360Service</members>
-        <members>Data360TelemetryArchivalBatch</members>
-        <members>Data360TelemetryArchivalBatchTest</members>
         <members>DispenseTransactionTriggerHandler</members>
         <members>DispenseTransactionTriggerTest</members>
         <members>InspectionAuditController</members>
@@ -102,17 +103,16 @@ The following 10 historical documents have been renamed with the `OBSOLETE_` pre
         <members>LicenseApplicationControllerTest</members>
         <members>PatientPortalController</members>
         <members>PatientPortalControllerTest</members>
-        <members>ProductPackageTriggerHandler</members>
-        <members>ProductPackageTriggerTest</members>
         <members>PurchaseLimitService</members>
         <members>QuarantineService</members>
-        <members>RFIDGeneratorService</members>
         <members>SupplyChainExplorerController</members>
         <members>SupplyChainExplorerControllerTest</members>
+        <members>TransferManifestController</members>
+        <members>TransferManifestControllerTest</members>
+        <members>TransferManifestTriggerHandler</members>
         <name>ApexClass</name>
     </types>
     <types>
-        <members>data360Manager</members>
         <members>dualSignaturePad</members>
         <members>inspectionAuditManager</members>
         <members>licenseApplicationWizard</members>
@@ -121,24 +121,10 @@ The following 10 historical documents have been renamed with the `OBSOLETE_` pre
         <name>LightningComponentBundle</name>
     </types>
     <types>
-        <members>MMAP_Admin_PermSet</members>
-        <members>MMAP_Inspector_PermSet</members>
-        <name>PermissionSet</name>
+        <members>singleColumnHomeTemplate</members>
+        <name>AuraDefinitionBundle</name>
     </types>
-    <types>
-        <members>Data360_API</members>
-        <name>NamedCredential</name>
-    </types>
-    <types>
-        <members>Data360_External_Credential</members>
-        <name>ExternalCredential</name>
-    </types>
-    <types>
-        <members>DataCloud_Core_Token</members>
-        <members>DataCloud_Hyperforce_Tenant</members>
-        <name>RemoteSiteSetting</name>
-    </types>
-    <version>61.0</version>
+    <version>62.0</version>
 </Package>
 ```
 
