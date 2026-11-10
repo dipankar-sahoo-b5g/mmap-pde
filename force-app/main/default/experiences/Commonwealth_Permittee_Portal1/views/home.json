@@ -13,14 +13,24 @@
     "regionName" : "featured",
     "type" : "region"
   }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:portalHomeDispatcher",
+      "id" : "1b9c78a3-eb5b-4f93-8688-ef1a7ab4f736",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
     "id" : "3b58091a-f71d-4bde-993d-5fb6e9db0e05",
     "regionName" : "content",
     "type" : "region"
   }, {
+    "components" : [ ],
     "id" : "12174208-45a3-4469-8a3d-22d9f1e4f559",
     "regionName" : "sidebar",
     "type" : "region"
   }, {
+    "components" : [ ],
     "id" : "fc1bcc72-353e-4931-b565-bb8f2e98d1a9",
     "regionName" : "footer",
     "type" : "region"
@@ -28,7 +38,7 @@
     "components" : [ {
       "componentAttributes" : {
         "customHeadTags" : "",
-        "description" : "",
+        "description" : "Commonwealth of Pennsylvania Medical Marijuana Permittee Portal",
         "title" : "Home"
       },
       "componentName" : "forceCommunity:seoAssistant",

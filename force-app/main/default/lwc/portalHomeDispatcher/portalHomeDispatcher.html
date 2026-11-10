@@ -1,0 +1,180 @@
+<template>
+    <!-- Loading State -->
+    <template lwc:if={isLoading}>
+        <div class="slds-card slds-p-around_x-large slds-text-align_center loading-card">
+            <lightning-spinner alternative-text="Verifying Credentials" size="medium"></lightning-spinner>
+            <p class="slds-text-heading_small slds-m-top_medium">
+                Verifying Permittee Credentials &amp; Routing Workspace...
+            </p>
+        </div>
+    </template>
+
+    <!-- Redirecting Prompt (Login-Event Dispatch) -->
+    <template lwc:elseif={isRedirecting}>
+        <div class="slds-card slds-p-around_large slds-theme_shade dispatch-prompt-card">
+            <div class="slds-media slds-media_center slds-m-bottom_medium">
+                <div class="slds-media__figure">
+                    <lightning-icon icon-name="utility:forward" size="medium" alternative-text="Redirecting"></lightning-icon>
+                </div>
+                <div class="slds-media__body">
+                    <h2 class="slds-text-heading_medium slds-text-color_default font-bold">
+                        Welcome, {userName}!
+                    </h2>
+                    <p class="slds-text-body_regular slds-text-color_weak slds-m-top_xx-small">
+                        Redirecting you directly to your operational workspace:
+                        <strong class="slds-text-color_inverse-weak">{targetWorkspaceTitle}</strong>
+                    </p>
+                </div>
+            </div>
+            <div class="slds-grid slds-grid_align-end slds-m-top_medium">
+                <lightning-button
+                    label="Stay on Home Page"
+                    variant="neutral"
+                    class="slds-m-right_x-small"
+                    onclick={handleStayOnHome}>
+                </lightning-button>
+                <lightning-button
+                    label="Go to Workspace Now"
+                    variant="brand"
+                    onclick={handleGoNow}>
+                </lightning-button>
+            </div>
+        </div>
+    </template>
+
+    <!-- Permittee Command Center & Hub Launcher (Active Session or Multi-Role) -->
+    <template lwc:elseif={showHub}>
+        <div class="hub-container">
+            <!-- Hero Permittee Card -->
+            <div class="slds-card slds-p-around_large hero-card slds-m-bottom_large">
+                <div class="slds-grid slds-grid_vertical-align-center slds-wrap">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_8-of-12">
+                        <div class="slds-media slds-media_center">
+                            <div class="slds-media__figure">
+                                <lightning-icon icon-name="standard:portal" size="large" alternative-text="Portal"></lightning-icon>
+                            </div>
+                            <div class="slds-media__body">
+                                <span class="slds-badge slds-badge_inverse slds-m-bottom_xx-small">
+                                    Commonwealth of Pennsylvania
+                                </span>
+                                <h1 class="slds-text-heading_large font-bold">
+                                    Medical Marijuana Permittee Portal
+                                </h1>
+                                <p class="slds-text-body_regular text-muted slds-m-top_xx-small">
+                                    Logged in as <strong>{userName}</strong> &bull; Authenticated Permittee Session
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Quick Return Button for Single-Role Persona -->
+                    <template lwc:if={hasPrimaryTarget}>
+                        <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 slds-text-align_right slds-m-top_small-only">
+                            <lightning-button
+                                label={primaryActionLabel}
+                                variant="brand"
+                                icon-name="utility:right"
+                                icon-position="right"
+                                onclick={handleLaunchPrimary}>
+                            </lightning-button>
+                        </div>
+                    </template>
+                </div>
+            </div>
+
+            <!-- Workspace Cards Grid -->
+            <div class="slds-m-bottom_large">
+                <div class="slds-grid slds-grid_vertical-align-center slds-m-bottom_small">
+                    <div class="slds-col">
+                        <h2 class="slds-text-heading_medium font-bold">
+                            Operational Workspaces
+                        </h2>
+                        <p class="slds-text-body_small slds-text-color_weak">
+                            Select an authorized workspace below to access lifecycle records, actions, and reports.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="slds-grid slds-wrap slds-gutters">
+                    <template for:each={navContext.allowedWorkspaces} for:item="card">
+                        <div key={card.id} class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_4-of-12 slds-m-bottom_medium">
+                            <div class="slds-card workspace-card h-100 slds-p-around_medium">
+                                <div class="slds-media slds-m-bottom_small">
+                                    <div class="slds-media__figure">
+                                        <lightning-icon icon-name={card.iconName} size="medium"></lightning-icon>
+                                    </div>
+                                    <div class="slds-media__body">
+                                        <span class="slds-badge slds-m-bottom_xx-small phase-badge">
+                                            {card.badgeLabel}
+                                        </span>
+                                        <h3 class="slds-text-heading_small font-bold">
+                                            {card.title}
+                                        </h3>
+                                    </div>
+                                </div>
+                                <p class="slds-text-body_small slds-m-bottom_medium card-description">
+                                    {card.description}
+                                </p>
+                                <div class="slds-m-top_auto">
+                                    <lightning-button
+                                        label="Open Workspace"
+                                        variant="neutral"
+                                        icon-name="utility:new_window"
+                                        data-route={card.routeUrl}
+                                        onclick={handleCardClick}
+                                        class="slds-size_full">
+                                    </lightning-button>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+
+            <!-- Regulatory Bulletins & Compliance Notices -->
+            <div class="slds-card slds-p-around_medium compliance-bulletins-card">
+                <div class="slds-media slds-media_center slds-m-bottom_small">
+                    <div class="slds-media__figure">
+                        <lightning-icon icon-name="utility:announcement" size="small" alternative-text="Bulletins"></lightning-icon>
+                    </div>
+                    <div class="slds-media__body">
+                        <h3 class="slds-text-heading_small font-bold">
+                            Commonwealth Regulatory Bulletins &amp; Compliance Notices
+                        </h3>
+                    </div>
+                </div>
+                <div class="slds-border_top slds-p-top_small">
+                    <ul class="slds-has-dividers_bottom-space">
+                        <li class="slds-item">
+                            <div class="slds-grid slds-grid_vertical-align-center">
+                                <span class="slds-badge slds-theme_error slds-m-right_small">Mandatory</span>
+                                <div class="slds-col">
+                                    <strong>Adverse Event &amp; Batch Recall Notification (BR066 / TR077):</strong>
+                                    Permittees must quarantine contaminated inventory immediately upon Certificate of Analysis failure.
+                                </div>
+                            </div>
+                        </li>
+                        <li class="slds-item">
+                            <div class="slds-grid slds-grid_vertical-align-center">
+                                <span class="slds-badge slds-theme_warning slds-m-right_small">Enforcement</span>
+                                <div class="slds-col">
+                                    <strong>Manufacturing Weight Variance Threshold (BR045 / BR029):</strong>
+                                    Package conversions resulting in &gt; 2.0% variance require mandatory reason logging before save.
+                                </div>
+                            </div>
+                        </li>
+                        <li class="slds-item">
+                            <div class="slds-grid slds-grid_vertical-align-center">
+                                <span class="slds-badge slds-theme_success slds-m-right_small">Live Check</span>
+                                <div class="slds-col">
+                                    <strong>Real-Time 90-Day MMU Quota Enforcer (BR052 / TR009):</strong>
+                                    All dispensary checkout transactions must validate patient registry certification in real time.
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </template>
+</template>
+

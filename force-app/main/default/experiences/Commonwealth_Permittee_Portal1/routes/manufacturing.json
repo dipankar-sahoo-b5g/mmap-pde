@@ -1,0 +1,12 @@
+{
+  "activeViewId": "9f46fc20-62a4-492e-8d81-69e02e240af8",
+  "appPageId": "5b2fef3d-9c40-4a59-b24f-a6f2e697a6aa",
+  "configurationTags": [],
+  "devName": "Manufacturing_Workspace",
+  "id": "23a03edd-2ce6-4a7f-882f-2df0b895e4ff",
+  "label": "Manufacturing Workspace",
+  "pageAccess": "UseParent",
+  "routeType": "custom-manufacturing",
+  "type": "route",
+  "urlPrefix": "manufacturing"
+}

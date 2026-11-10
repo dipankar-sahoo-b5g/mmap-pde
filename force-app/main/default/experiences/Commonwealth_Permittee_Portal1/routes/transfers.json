@@ -1,0 +1,12 @@
+{
+  "activeViewId": "9a2bef40-a4c1-445b-9d9d-9ab8a5ac6685",
+  "appPageId": "5b2fef3d-9c40-4a59-b24f-a6f2e697a6aa",
+  "configurationTags": [],
+  "devName": "Transfers_Console",
+  "id": "1386742d-aa12-42b2-b03c-d8c669e963fb",
+  "label": "Transfers Console",
+  "pageAccess": "UseParent",
+  "routeType": "custom-transfers",
+  "type": "route",
+  "urlPrefix": "transfers"
+}

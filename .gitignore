@@ -55,3 +55,7 @@ $RECYCLE.BIN/
 SECRETS.md
 *.secrets.*
 
+# Scratch Scripts & Temporary Scaffolding
+scratch/
+
+

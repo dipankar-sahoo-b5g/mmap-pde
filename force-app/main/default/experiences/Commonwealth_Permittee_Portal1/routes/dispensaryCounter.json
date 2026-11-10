@@ -1,0 +1,12 @@
+{
+  "activeViewId": "a187dc1d-f5f5-4526-acb7-bdeb439ef709",
+  "appPageId": "5b2fef3d-9c40-4a59-b24f-a6f2e697a6aa",
+  "configurationTags": [],
+  "devName": "Dispensary_Counter_Workspace",
+  "id": "8175d38c-d57b-486c-9bac-7651f4d3ac2e",
+  "label": "Dispensary Counter Workspace",
+  "pageAccess": "UseParent",
+  "routeType": "custom-dispensary-counter",
+  "type": "route",
+  "urlPrefix": "dispensary-counter"
+}

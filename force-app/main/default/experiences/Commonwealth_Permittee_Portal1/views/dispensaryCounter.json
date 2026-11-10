@@ -1,0 +1,65 @@
+{
+  "appPageId": "5b2fef3d-9c40-4a59-b24f-a6f2e697a6aa",
+  "componentName": "siteforce:sldsTwoCol84Layout",
+  "dataProviders": [],
+  "id": "a187dc1d-f5f5-4526-acb7-bdeb439ef709",
+  "label": "Dispensary Counter Workspace",
+  "regions": [
+    {
+      "components": [
+        {
+          "componentAttributes": {
+            "richTextValue": "<div style=\"padding: 16px; background: #f4f6f9; border-left: 4px solid #005a9c; border-radius: 4px; margin-bottom: 16px;\">\n    <h2 style=\"font-size: 18px; font-weight: bold; color: #0b2545; margin: 0 0 4px 0;\">Phase 5: Dispensary Retail Counter & POS</h2>\n    <p style=\"font-size: 13px; color: #4a5568; margin: 0 0 6px 0;\"><strong>Active Persona:</strong> Brian Gallagher (Susquehanna Dispensary Mgr) — Scenes 9 & 10</p>\n    <p style=\"font-size: 12px; color: #718096; margin: 0;\">Caregiver Registry & Card Check, 90-Day MMU Quota Enforcer (192 MMU Limit), Dispense POS Cart, Receipt Print & Quarantine Refusal Block.</p>\n  </div>"
+          },
+          "componentName": "forceCommunity:richTextInline",
+          "id": "afb7fec6-8412-4d06-a684-523c1883cfdf",
+          "renderPriority": "NEUTRAL",
+          "renditionMap": {},
+          "type": "component"
+        }
+      ],
+      "id": "e73dc1eb-db93-40d6-84fb-d856ad7692d5",
+      "regionName": "header",
+      "type": "region"
+    },
+    {
+      "components": [],
+      "id": "cee0029d-fa27-4dd6-82ff-42a4764195b0",
+      "regionName": "content",
+      "type": "region"
+    },
+    {
+      "components": [],
+      "id": "c2ec8b19-ccd2-4d15-bd7f-a648479e01bb",
+      "regionName": "sidebar",
+      "type": "region"
+    },
+    {
+      "components": [],
+      "id": "9bbf811e-2196-4166-ae2b-7dbb301589de",
+      "regionName": "footer",
+      "type": "region"
+    },
+    {
+      "components": [
+        {
+          "componentAttributes": {
+            "customHeadTags": "",
+            "description": "Caregiver Registry & Card Check, 90-Day MMU Quota Enforcer (192 MMU Limit), Dispense POS Cart, Receipt Print & Quarantine Refusal Block.",
+            "title": "Dispensary Counter Workspace"
+          },
+          "componentName": "forceCommunity:seoAssistant",
+          "id": "364d484d-3a97-4da5-8b84-f51a5ec85b60",
+          "renditionMap": {},
+          "type": "component"
+        }
+      ],
+      "id": "867ecf2a-e210-4b9d-a2a5-8774797a99fc",
+      "regionName": "sfdcHiddenRegion",
+      "type": "region"
+    }
+  ],
+  "themeLayoutType": "Inner",
+  "type": "view",
+  "viewType": "custom-dispensary-counter"
+}

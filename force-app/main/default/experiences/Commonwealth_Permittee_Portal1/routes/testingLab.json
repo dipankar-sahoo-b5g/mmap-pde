@@ -1,0 +1,12 @@
+{
+  "activeViewId": "91f1d9b5-9de1-41e3-9e48-0a159ca98650",
+  "appPageId": "5b2fef3d-9c40-4a59-b24f-a6f2e697a6aa",
+  "configurationTags": [],
+  "devName": "Testing_Lab_Workspace",
+  "id": "dcdc6454-0ec6-4c96-910a-23ddfea7c484",
+  "label": "Testing Lab Workspace",
+  "pageAccess": "UseParent",
+  "routeType": "custom-testing-lab",
+  "type": "route",
+  "urlPrefix": "testing-lab"
+}

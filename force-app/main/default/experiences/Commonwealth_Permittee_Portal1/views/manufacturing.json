@@ -1,0 +1,65 @@
+{
+  "appPageId": "5b2fef3d-9c40-4a59-b24f-a6f2e697a6aa",
+  "componentName": "siteforce:sldsTwoCol84Layout",
+  "dataProviders": [],
+  "id": "9f46fc20-62a4-492e-8d81-69e02e240af8",
+  "label": "Manufacturing Workspace",
+  "regions": [
+    {
+      "components": [
+        {
+          "componentAttributes": {
+            "richTextValue": "<div style=\"padding: 16px; background: #f4f6f9; border-left: 4px solid #005a9c; border-radius: 4px; margin-bottom: 16px;\">\n    <h2 style=\"font-size: 18px; font-weight: bold; color: #0b2545; margin: 0 0 4px 0;\">Phase 2: Grower/Processor Manufacturing & Packaging</h2>\n    <p style=\"font-size: 13px; color: #4a5568; margin: 0 0 6px 0;\"><strong>Active Persona:</strong> Megan Schaefer (Processing Tech) & Karen Brennan (Compliance Mgr) — Scenes 5 & 6</p>\n    <p style=\"font-size: 12px; color: #718096; margin: 0;\">Harvest Batch Consumption, Child Vape Cartridge Packaging, 4x6 Regulated Label Generation & Weight Variance Reconciliation.</p>\n  </div>"
+          },
+          "componentName": "forceCommunity:richTextInline",
+          "id": "9b17189e-4c90-4d9c-862b-479c3ccb159e",
+          "renderPriority": "NEUTRAL",
+          "renditionMap": {},
+          "type": "component"
+        }
+      ],
+      "id": "67756216-dd87-40aa-a23b-8bd736a10b74",
+      "regionName": "header",
+      "type": "region"
+    },
+    {
+      "components": [],
+      "id": "450878fe-1224-4226-9fef-ad2d3dae1d3d",
+      "regionName": "content",
+      "type": "region"
+    },
+    {
+      "components": [],
+      "id": "48a6d1c5-d578-4b30-b78e-3920c7d88747",
+      "regionName": "sidebar",
+      "type": "region"
+    },
+    {
+      "components": [],
+      "id": "442f570e-32e5-48bb-bf1a-09ef9f317d89",
+      "regionName": "footer",
+      "type": "region"
+    },
+    {
+      "components": [
+        {
+          "componentAttributes": {
+            "customHeadTags": "",
+            "description": "Harvest Batch Consumption, Child Vape Cartridge Packaging, 4x6 Regulated Label Generation & Weight Variance Reconciliation.",
+            "title": "Manufacturing Workspace"
+          },
+          "componentName": "forceCommunity:seoAssistant",
+          "id": "eab4ed64-7554-465e-99e6-fa1324b94049",
+          "renditionMap": {},
+          "type": "component"
+        }
+      ],
+      "id": "7a4b8d57-d4eb-4c61-a938-ea22b5d7448f",
+      "regionName": "sfdcHiddenRegion",
+      "type": "region"
+    }
+  ],
+  "themeLayoutType": "Inner",
+  "type": "view",
+  "viewType": "custom-manufacturing"
+}

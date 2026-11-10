@@ -60,3 +60,11 @@
   - Whenever working on Data Cloud ingestion APIs, Lakehouse schemas, ECA tokens, or Lakehouse metadata, **Gemini must always navigate directly to and work within `c:\Users\DipankarSahoo\Desktop\marijuana Data Cloud`**.
   - Whenever working on Core CRM objects, LWC, Apex services, or manifest packages, **Gemini must always work within `c:\Users\DipankarSahoo\Desktop\marijuana`**.
   - Never scatter files across Downloads or create redundant local copies. Both active projects reside exclusively side-by-side on the Desktop.
+
+---
+
+## 8. Feature Manifest Protocol
+- **Dedicated Package Manifest Naming Convention**: For EVERY feature, task, or phase build, a dedicated package manifest `manifest/package-<task-name>-<description>-dipankar.xml` MUST be created before/during deployment and committed to the repository (e.g., `manifest/package-t26-mock-registry-dipankar.xml`, `manifest/package-t07-portal-container-dipankar.xml`, `manifest/package-t07-workspaces-dipankar.xml`). The name MUST include the task name and end with `-dipankar.xml` so the owner and task scope are immediately identifiable.
+- **Comprehensive Component Coverage**: Every package manifest must explicitly list all new and modified components for that feature (Apex classes, tests, custom fields, permissions, layouts, flexipages, sites, networks, experience bundles).
+- **Master Manifest Synchronization**: The master `manifest/package.xml` must also be updated to include all newly introduced metadata components so the entire repository remains 100% deployable as a cohesive whole.
+- **Obsolete Manifest Segregation**: Any historical or legacy manifests created outside the authoritative Excel Demo Plan (`docs/PA Seed-to-Sale Demo Plan_7.xlsx`) must be segregated into `manifest/obsolete/` and never used for active deployments.

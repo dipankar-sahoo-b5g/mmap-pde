@@ -24,6 +24,12 @@
         <members>TransferManifestController</members>
         <members>TransferManifestControllerTest</members>
         <members>TransferManifestTriggerHandler</members>
+        <members>RegistryMockRestService</members>
+        <members>RegistryMockRestServiceTest</members>
+        <members>RegistryServiceCallout</members>
+        <members>RegistryServiceCalloutTest</members>
+        <members>PortalNavigationController</members>
+        <members>PortalNavigationControllerTest</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -261,6 +267,24 @@
         <members>Transfer_Manifest__c.VR_MNF_Different_Facilities</members>
         <members>Inspection_Audit__c.VR_AUDIT_Valid_Score</members>
         <name>ValidationRule</name>
+    </types>
+    <types>
+        <members>Commonwealth_Permittee_Portal</members>
+        <name>CustomSite</name>
+    </types>
+    <types>
+        <members>Commonwealth_Permittee_Portal1</members>
+        <name>ExperienceBundle</name>
+    </types>
+    <types>
+        <members>Commonwealth Permittee Portal</members>
+        <name>Network</name>
+    </types>
+    <types>
+        <members>Chatter</members>
+        <members>Communities</members>
+        <members>ExperienceBundle</members>
+        <name>Settings</name>
     </types>
     <version>68.0</version>
 </Package>

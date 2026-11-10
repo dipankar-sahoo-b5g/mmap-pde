@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>RegistryMockRestService</members>
+        <members>RegistryMockRestServiceTest</members>
+        <members>RegistryServiceCallout</members>
+        <members>RegistryServiceCalloutTest</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>Patient_Ref__c.MMU_Allowance__c</members>
+        <members>Patient_Ref__c.MMU_Remaining__c</members>
+        <members>Patient_Ref__c.MMU_Used_90_Days__c</members>
+        <members>Patient_Ref__c.Practitioner_Limits__c</members>
+        <members>Patient_Ref__c.Registry_ID__c</members>
+        <members>Registry_Check__c.Allowance_MMU__c</members>
+        <members>Registry_Check__c.Caregiver_Ref__c</members>
+        <members>Registry_Check__c.Certification_Status__c</members>
+        <members>Registry_Check__c.Consumed_MMU__c</members>
+        <members>Registry_Check__c.Patient_Ref__c</members>
+        <members>Registry_Check__c.Practitioner_Limits__c</members>
+        <members>Registry_Check__c.Remaining_MMU__c</members>
+        <name>CustomField</name>
+    </types>
+    <types>
+        <members>MMAP_Admin_PermSet</members>
+        <name>PermissionSet</name>
+    </types>
+    <version>68.0</version>
+</Package>
+

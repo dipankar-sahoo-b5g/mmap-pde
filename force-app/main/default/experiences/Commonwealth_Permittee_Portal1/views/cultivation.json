@@ -1,0 +1,65 @@
+{
+  "appPageId": "5b2fef3d-9c40-4a59-b24f-a6f2e697a6aa",
+  "componentName": "siteforce:sldsTwoCol84Layout",
+  "dataProviders": [],
+  "id": "99af8c41-8855-46ad-87fe-17480130b543",
+  "label": "Cultivation Workspace",
+  "regions": [
+    {
+      "components": [
+        {
+          "componentAttributes": {
+            "richTextValue": "<div style=\"padding: 16px; background: #f4f6f9; border-left: 4px solid #005a9c; border-radius: 4px; margin-bottom: 16px;\">\n    <h2 style=\"font-size: 18px; font-weight: bold; color: #0b2545; margin: 0 0 4px 0;\">Phase 1: Grower/Processor Cultivation</h2>\n    <p style=\"font-size: 13px; color: #4a5568; margin: 0 0 6px 0;\"><strong>Active Persona:</strong> Ryan Kowalski (Keystone Growers Cultivation Tech) — Scenes 1 to 4</p>\n    <p style=\"font-size: 12px; color: #718096; margin: 0;\">Seed Lot Intake, Lot Splitting, Plant Tagging, Growth Stages, Waste Destruction & Harvest Lot Creation.</p>\n  </div>"
+          },
+          "componentName": "forceCommunity:richTextInline",
+          "id": "1cef2b65-5f43-413c-a48c-7681c82b8072",
+          "renderPriority": "NEUTRAL",
+          "renditionMap": {},
+          "type": "component"
+        }
+      ],
+      "id": "a48b4043-51f3-4c8d-9c15-c5918dc2bf46",
+      "regionName": "header",
+      "type": "region"
+    },
+    {
+      "components": [],
+      "id": "4923056c-9bb1-4ecc-8602-bf4fd693ea78",
+      "regionName": "content",
+      "type": "region"
+    },
+    {
+      "components": [],
+      "id": "28442375-8bc9-415d-b206-23e67218c5f2",
+      "regionName": "sidebar",
+      "type": "region"
+    },
+    {
+      "components": [],
+      "id": "bee160da-fee1-4c2b-b2a9-5934191a9543",
+      "regionName": "footer",
+      "type": "region"
+    },
+    {
+      "components": [
+        {
+          "componentAttributes": {
+            "customHeadTags": "",
+            "description": "Seed Lot Intake, Lot Splitting, Plant Tagging, Growth Stages, Waste Destruction & Harvest Lot Creation.",
+            "title": "Cultivation Workspace"
+          },
+          "componentName": "forceCommunity:seoAssistant",
+          "id": "9fb196ca-713b-486a-9fda-ef7b663d26b0",
+          "renditionMap": {},
+          "type": "component"
+        }
+      ],
+      "id": "2b549206-8354-42bc-b90e-038362b7d485",
+      "regionName": "sfdcHiddenRegion",
+      "type": "region"
+    }
+  ],
+  "themeLayoutType": "Inner",
+  "type": "view",
+  "viewType": "custom-cultivation"
+}

@@ -1,0 +1,65 @@
+{
+  "appPageId": "5b2fef3d-9c40-4a59-b24f-a6f2e697a6aa",
+  "componentName": "siteforce:sldsTwoCol84Layout",
+  "dataProviders": [],
+  "id": "9a2bef40-a4c1-445b-9d9d-9ab8a5ac6685",
+  "label": "Transfers Console",
+  "regions": [
+    {
+      "components": [
+        {
+          "componentAttributes": {
+            "richTextValue": "<div style=\"padding: 16px; background: #f4f6f9; border-left: 4px solid #005a9c; border-radius: 4px; margin-bottom: 16px;\">\n    <h2 style=\"font-size: 18px; font-weight: bold; color: #0b2545; margin: 0 0 4px 0;\">Phase 4: Cross-Org Transport Manifest Console</h2>\n    <p style=\"font-size: 13px; color: #4a5568; margin: 0 0 6px 0;\"><strong>Active Persona:</strong> Karen Brennan (Keystone Shipper) & Brian Gallagher (Susquehanna Receiver) — Scene 8</p>\n    <p style=\"font-size: 12px; color: #718096; margin: 0;\">Transport Manifest Dispatch, Tag ID Outbound Scan, In-Transit Lock, Electronic PDF Manifest & Inbound Short Receipt Variance Log.</p>\n  </div>"
+          },
+          "componentName": "forceCommunity:richTextInline",
+          "id": "8eed32b1-bd40-465c-9fda-b16cab7b05ba",
+          "renderPriority": "NEUTRAL",
+          "renditionMap": {},
+          "type": "component"
+        }
+      ],
+      "id": "149dd665-fbb1-44a9-a8c5-899f6e77d2b7",
+      "regionName": "header",
+      "type": "region"
+    },
+    {
+      "components": [],
+      "id": "431e4789-0082-43b1-bb07-7d9e072c9bfa",
+      "regionName": "content",
+      "type": "region"
+    },
+    {
+      "components": [],
+      "id": "0b161bbf-7181-450d-83e6-3b92e0a62016",
+      "regionName": "sidebar",
+      "type": "region"
+    },
+    {
+      "components": [],
+      "id": "b43c0522-a12e-43f1-8794-9bc12dda5834",
+      "regionName": "footer",
+      "type": "region"
+    },
+    {
+      "components": [
+        {
+          "componentAttributes": {
+            "customHeadTags": "",
+            "description": "Transport Manifest Dispatch, Tag ID Outbound Scan, In-Transit Lock, Electronic PDF Manifest & Inbound Short Receipt Variance Log.",
+            "title": "Transfers Console"
+          },
+          "componentName": "forceCommunity:seoAssistant",
+          "id": "0d351644-a89f-4786-aa52-923f9099e450",
+          "renditionMap": {},
+          "type": "component"
+        }
+      ],
+      "id": "fd3990e1-fc0b-410b-8332-42b8621ed15a",
+      "regionName": "sfdcHiddenRegion",
+      "type": "region"
+    }
+  ],
+  "themeLayoutType": "Inner",
+  "type": "view",
+  "viewType": "custom-transfers"
+}

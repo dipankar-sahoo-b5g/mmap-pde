@@ -1,0 +1,12 @@
+{
+  "activeViewId": "99af8c41-8855-46ad-87fe-17480130b543",
+  "appPageId": "5b2fef3d-9c40-4a59-b24f-a6f2e697a6aa",
+  "configurationTags": [],
+  "devName": "Cultivation_Workspace",
+  "id": "0cf21aec-0eec-45e0-9e80-40b027532464",
+  "label": "Cultivation Workspace",
+  "pageAccess": "UseParent",
+  "routeType": "custom-cultivation",
+  "type": "route",
+  "urlPrefix": "cultivation"
+}
