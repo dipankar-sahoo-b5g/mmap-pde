@@ -1,7 +1,7 @@
 # 🏛️ Pennsylvania Seed-to-Sale Demo: Master Architectural Specification
-## Unified Page Blueprints (Page 1 through Page 6), Document Governance & Dipankar Implementation Roadmap
+## Unified Demo Lifecycle Blueprints (Phase 1 through Phase 6), Document Governance & Dipankar Implementation Roadmap
 
-**Document Type:** Master System Specification, Multi-Page UI Dictionaries & Technical Blueprint  
+**Document Type:** Master System Specification, Multi-Phase Demo Blueprints & Technical Architecture  
 **Sole Authoritative Baseline:** `docs/PA Seed-to-Sale Demo Plan_7.xlsx` (Rev. 2026-11-06 / Rev. 10/8/26 SOW)  
 **Target Platform:** Salesforce Platform (Core CRM) & Experience Cloud Portal  
 **Primary Architect / Developer:** Dipankar (Portal, Security, Manifest, Mock Registry)  
@@ -152,24 +152,24 @@ The following 10 historical documents have been renamed with the `OBSOLETE_` pre
 
 ---
 
-## 3. End-to-End Page Architecture: Page 1 Through Page 6
+## 3. End-to-End Supply Chain Lifecycle Architecture: Phase 1 Through Phase 6
 
-The demo experience is delivered across **6 dedicated UI Pages/Workspaces** aligning strictly with the 11 demo scenes and the 10 sheets of `PA Seed-to-Sale Demo Plan_7.xlsx`:
+The demo experience is delivered across **6 sequential Supply Chain Lifecycle Phases** (operating across dedicated Permittee Portal and DOH Lightning workspaces), aligning strictly with the 11 demo scenes and the 10 sheets of `PA Seed-to-Sale Demo Plan_7.xlsx`:
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'fontSize': '16px', 'fontFamily': 'system-ui, -apple-system, sans-serif' }}}%%
 flowchart TD
-    P1["Page 1: G/P Cultivation<br/>Keystone (Ryan Kowalski)<br/>Scenes 1 to 4: Seed to Harvest"] --> P2["Page 2: G/P Manufacturing & Packaging<br/>Keystone (Megan & Karen)<br/>Scenes 5 & 6: Batch to Package"]
-    P2 --> P4["Page 4: Transfer & Transport Manifest<br/>Keystone to Susquehanna (Karen & Brian)<br/>Scene 8: Manifest Dispatch & Check-In"]
-    P2 -.->|Sample PA-SMP| P3["Page 3: Testing Lab COA<br/>Commonwealth Labs (Lisa Romano)<br/>Scene 7: COA Entry & Fail Walk"]
+    P1["Phase 1: G/P Cultivation<br/>Keystone (Ryan Kowalski)<br/>Scenes 1 to 4: Seed to Harvest"] --> P2["Phase 2: G/P Manufacturing & Packaging<br/>Keystone (Megan & Karen)<br/>Scenes 5 & 6: Batch to Package"]
+    P2 --> P4["Phase 4: Transfer & Transport Manifest<br/>Keystone to Susquehanna (Karen & Brian)<br/>Scene 8: Manifest Dispatch & Check-In"]
+    P2 -.->|Sample PA-SMP| P3["Phase 3: Testing Lab COA<br/>Commonwealth Labs (Lisa Romano)<br/>Scene 7: COA Entry & Fail Walk"]
     P3 -.->|Quarantine Walk| P4
-    P4 --> P5["Page 5: Dispensary Retail Counter<br/>Susquehanna (Brian Gallagher)<br/>Scenes 9 & 10: Caregiver POS & QUAR Block"]
-    P5 -.->|Adverse Event Recall| P6["Page 6: DOH Compliance Console<br/>PA DOH (Susan Yoder)<br/>Scene 11 & Template Approval"]
+    P4 --> P5["Phase 5: Dispensary Retail Counter<br/>Susquehanna (Brian Gallagher)<br/>Scenes 9 & 10: Caregiver POS & QUAR Block"]
+    P5 -.->|Adverse Event Recall| P6["Phase 6: DOH Compliance Console<br/>PA DOH (Susan Yoder)<br/>Scene 11 & Template Approval"]
 ```
 
 ---
 
-### Page 1: Grower/Processor Cultivation Workspace (`Keystone Growers`)
+### Phase 1: Grower/Processor Cultivation Workspace (`Keystone Growers`)
 * **Portal Route:** `/portal/s/cultivation`
 * **Assigned Persona:** `Ryan Kowalski` (Cultivation Technician — Scenes 1, 2, 3, 4)
 * **Access Scope:** Keystone records only (`Owner_Account__c = 'Keystone Growers'`). Cannot access packages, sales, or DOH approvals.
@@ -198,7 +198,7 @@ flowchart TD
 
 ---
 
-### Page 2: Grower/Processor Manufacturing & Packaging Workspace (`Keystone Growers`)
+### Phase 2: Grower/Processor Manufacturing & Packaging Workspace (`Keystone Growers`)
 * **Portal Route:** `/portal/s/manufacturing`
 * **Assigned Personas:** 
   * `Megan Schaefer` (Processing Tech — Scene 5)
@@ -221,7 +221,7 @@ flowchart TD
 
 ---
 
-### Page 3: Testing Lab COA Workspace (`Commonwealth Labs`)
+### Phase 3: Testing Lab COA Workspace (`Commonwealth Labs`)
 * **Portal Route:** `/portal/s/testing-lab`
 * **Assigned Persona:** `Lisa Romano` (Lab Analyst — Scene 7)
 * **Access Scope:** Samples assigned to Commonwealth Labs (`PA-SMP-000001`, `PA-SMP-000002`) and their COA test results (`Lab_Result__c`). Completely isolated from grower inventory.
@@ -241,7 +241,7 @@ flowchart TD
 
 ---
 
-### Page 4: Cross-Org Transport Manifest Console (Cross-Org Permittee Portal)
+### Phase 4: Cross-Org Transport Manifest Console (Cross-Org Permittee Portal)
 * **Portal Route:** `/portal/s/transfers`
 * **Assigned Personas:** 
   * `Karen Brennan` (Keystone Compliance Manager — Shipper)
@@ -265,7 +265,7 @@ flowchart TD
 
 ---
 
-### Page 5: Dispensary Retail Counter & POS Workspace (`Susquehanna Dispensary`)
+### Phase 5: Dispensary Retail Counter & POS Workspace (`Susquehanna Dispensary`)
 * **Portal Route:** `/portal/s/dispensary-counter`
 * **Assigned Persona:** `Brian Gallagher` (Dispensary Manager — Scenes 9 & 10)
 * **Customer Personas (No Login):** `Linda Stauffer` (Caregiver) buying for `Robert Stauffer` (Patient)
@@ -296,7 +296,7 @@ flowchart TD
 
 ---
 
-### Page 6: DOH State Compliance & Executive Recall Console (`PA DOH`)
+### Phase 6: DOH State Compliance & Executive Recall Console (`PA DOH`)
 * **Interface:** Salesforce Internal Lightning App (Public Sector Solutions)
 * **Assigned Persona:** `Susan Yoder` (DOH Compliance Officer — Scene 11 & Template Governance)
 * **Access Scope:** State-wide cross-organizational read access; recall issuance; label template approval.
@@ -306,7 +306,7 @@ flowchart TD
 1. **Label Template Governance Panel:**
    * Susan reviews pending label designs (`Label_Template__c`).
    * Reviews Keystone submitted template (`Version__c = 3`).
-   * Approval Action: Updates status to *DOH Approved*, instantly unlocking printing on Page 2 (`BR075`, `TR104`).
+   * Approval Action: Updates status to *DOH Approved*, instantly unlocking printing in Phase 2 (`BR075`, `TR104`).
 2. **Adverse Event Report & Mandated Recall (Scene 11):**
    * DOH receives an adverse event notification on cartridge `PA-PKG-000001`.
    * Susan clicks *Initiate Mandated Recall* on batch `PA-BAT-000001`.
@@ -330,19 +330,77 @@ flowchart TD
 %%{init: {'theme': 'base', 'themeVariables': { 'fontSize': '16px', 'fontFamily': 'system-ui, -apple-system, sans-serif' }}}%%
 flowchart TD
     D1["Phase 2: Task T26 (Mock Registry Service)<br/>• Patient_Ref__c & Registry_Check__c schema<br/>• Apex REST Mock Resource & Named Credential<br/>• Automated call logger & unit tests"]
-    D2["Phase 3: Tasks T07 & T08 (Portal & Security)<br/>• Experience Cloud Permittee Portal site<br/>• 3 Persona Landing Homepages (Pages 1, 2, 3, 5)<br/>• 5 Community Plus Users & Sharing Rules"]
-    D3["Phase 4: Task T09 (Transfer & Manifest Engine)<br/>• Transfer_Manifest__c & Manifest_Line__c (Page 4)<br/>• Tag ID Check-Out / Check-In automations<br/>• Variance validation & QUAR-01 shipping block"]
+    D2["Phase 3: Tasks T07 & T08 (Portal & Security)<br/>• Experience Cloud Permittee Portal site<br/>• 3 Persona Landing Workspaces (Phases 1, 2, 3, 5)<br/>• 5 Community Plus Users & Sharing Rules"]
+    D3["Phase 4: Task T09 (Transfer & Manifest Engine)<br/>• Transfer_Manifest__c & Manifest_Line__c (Phase 4)<br/>• Tag ID Check-Out / Check-In automations<br/>• Variance validation & QUAR-01 shipping block"]
     D4["Phase 5: Tasks T10 & T11 (Wiring & Presenter)<br/>• Portal component & flow placement<br/>• Multi-persona Chrome profiles & checklist"]
     D5["Phase 6: Tasks T24 & T25 (Rehearsal & Triage)<br/>• 35-min dry run & fix resolution"]
 
     D1 --> D2 --> D3 --> D4 --> D5
 ```
 
-### Execution Details: Phase 2 (Task T26)
-* **Goal:** Deliver the Mock Registry REST service and verification call logger for Scene 9 dispensary checkout.
-* **Metadata to Scaffolding:**
-  * Custom Objects: `Patient_Ref__c`, `Registry_Check__c`.
-  * Apex REST Class: `RegistryMockRestService.cls` (`@RestResource(urlMapping='/registry/check/*')`).
-  * Invocable Wrapper: `RegistryServiceCallout.cls` (for Flow integration).
-  * Unit Test: `RegistryMockRestServiceTest.cls` ($\ge 90\%$ test coverage).
-* **Sample Data:** Robert Stauffer (`PA-PAT-77201`) and Linda Stauffer (`PA-CG-99104`).
+### Execution Details: Phase 1 (Schema Sync & Gap Remediation) — ✅ COMPLETED
+* **Status:** Complete, verified in Salesforce org (`pmarijuna-partner-dev-org`), committed in `4f65f20` and pushed to `origin/main`.
+* **Deliverables:**
+  * Retrieved all 11 new custom objects and their fields: `Tracked_Item__c`, `Patient_Ref__c`, `Registry_Check__c`, `Lineage_Link__c`, `Inventory_Event__c`, `Lab_Result__c`, `Manifest_Line__c`, `Label_Template__c`, `Label_Print__c`, `Recall__c`, `Recall_Exposure__c`.
+  * Retrieved teammate custom fields on standard objects: `Product2` (`Allergens__c`, `Cannabis_Strain__c`, `Dose_Count__c`, `Form__c`, `MMU_Per_Unit__c`, `Warnings__c`), `Location` (`Account__c`), `Account` (`Permit_Number__c`, `Active__c`, etc.), `Contact` (`Languages__c`, `Level__c`).
+  * Scaffolded and deployed missing Phase 2 fields:
+    * `Registry_Check__c.Patient_Ref__c` (Lookup to `Patient_Ref__c`)
+    * `Registry_Check__c.Caregiver_Ref__c` (Lookup to `Patient_Ref__c`)
+    * `Registry_Check__c.Practitioner_Limits__c` (corrected from Number to `Text(255)`)
+    * `Patient_Ref__c.Practitioner_Limits__c` (`Text(255)`)
+    * `Patient_Ref__c.MMU_Allowance__c` (`Number(10,2)`, default 192)
+    * `Patient_Ref__c.MMU_Used_90_Days__c` (`Number(10,2)`, default 0)
+    * `Patient_Ref__c.MMU_Remaining__c` (Formula: `MMU_Allowance__c - MMU_Used_90_Days__c`)
+    * `Patient_Ref__c.Registry_ID__c` (flagged as `External ID & Unique`)
+    * `Manifest_Line__c.Manifest__c` (Lookup to `Transfer_Manifest__c`)
+
+---
+
+### Execution Details: Phase 2 (Task T26: Mock Registry Service & Audit Logger)
+To manage complexity and ensure granular verification, Task T26 is decomposed into **4 modular features**:
+
+#### Feature 2.1: Apex REST Mock Resource (`RegistryMockRestService.cls`)
+* **URL Mapping:** `/services/apexrest/registry/check/*`
+* **HTTP Method:** `GET`
+* **Query Behavior:** Extracts the registry identifier from the request URI path (e.g., `/registry/check/PA-CG-99104` or `/registry/check/PA-PAT-77201`).
+* **Genealogy & Linkage Logic:**
+  * If queried by a Patient ID, verifies direct active certification and limits.
+  * If queried by a Caregiver Card ID (`Person_Type__c = 'Caregiver'`), queries `Linked_Patient__c` to retrieve the associated patient record.
+* **Audit Logging Automation (`TR009`):** Automatically creates and inserts an immutable record into `Registry_Check__c` with timestamp, queried user ID, response code (`200 OK` or error), practitioner limits, allowance, used, and remaining balance snapshot.
+* **Response Payload Schema:**
+  ```json
+  {
+    "statusCode": "200",
+    "status": "Active",
+    "patientId": "PA-PAT-77201",
+    "patientName": "Robert Stauffer",
+    "caregiverId": "PA-CG-99104",
+    "caregiverName": "Linda Stauffer",
+    "certificationExpiry": "2027-11-06",
+    "practitionerLimits": "No whole flower; vape cartridges and tinctures only",
+    "allowanceMMU": 192.00,
+    "consumedMMU": 140.00,
+    "remainingMMU": 52.00
+  }
+  ```
+
+#### Feature 2.2: Flow Invocable Service Wrapper (`RegistryServiceCallout.cls`)
+* **Purpose:** Provides an `@InvocableMethod(label='Verify Registry Eligibility')` so Renu's dispensary screen flow (`T21`) can query the registry check directly without writing Apex.
+* **Inputs:** `registryId` (Text).
+* **Outputs:** `isEligible` (Boolean), `patientName` (Text), `caregiverName` (Text), `remainingMMU` (Decimal), `practitionerLimits` (Text), `errorMessage` (Text).
+
+#### Feature 2.3: Comprehensive Unit Test Suite (`RegistryMockRestServiceTest.cls`)
+* **Test Coverage Target:** $\ge 90\%$ line coverage with strict assertions.
+* **Test Scenarios:**
+  1. Positive Patient Query: `PA-PAT-77201` returns Active with remaining 52 MMUs.
+  2. Positive Caregiver Query: `PA-CG-99104` resolves to patient Robert Stauffer.
+  3. Expired/Inactive Patient: Returns non-active status with refusal reason.
+  4. Non-Existent ID: Returns 404/NOT_FOUND with clean error handling.
+  5. Audit Log Assertion: Verifies row inserted in `Registry_Check__c` with exact matching timestamps and balance.
+  6. Invocable Method Test: Verifies Flow wrapper inputs and outputs.
+
+#### Feature 2.4: Patient & Caregiver Seed Data Script
+* **Purpose:** Populates realistic demo records for Robert Stauffer and Linda Stauffer in `Patient_Ref__c`.
+* **Data Specification:**
+  * Patient: `Name = 'Robert Stauffer'`, `Registry_ID__c = 'PA-PAT-77201'`, `Person_Type__c = 'Patient'`, `Certification_Status__c = 'Active'`, `Certification_Expiry__c = Date.today().addYears(1)`, `Practitioner_Limits__c = 'No whole flower; vape cartridges and tinctures only'`, `MMU_Allowance__c = 192`, `MMU_Used_90_Days__c = 140`.
+  * Caregiver: `Name = 'Linda Stauffer'`, `Registry_ID__c = 'PA-CG-99104'`, `Person_Type__c = 'Caregiver'`, `Linked_Patient__c` $\rightarrow$ Robert Stauffer record.
